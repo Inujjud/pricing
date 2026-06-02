@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مخرج نجد — التسعيرة والخطة الزمنية</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Kufam';src:url('Kufam-Regular.ttf') format('truetype')}
+
+:root{
+  --gold:#B8893A;
+  --gold-l:#D4A855;
+  --gold-p:#F5E6C8;
+  --gold-d:#8C6030;
+  --green:#2D4A35;
+  --green-l:#3D6347;
+  --green-p:#E8F0EA;
+  --brown:#5C3D20;
+  --brown-l:#7A5530;
+  --beige:#FAF7F0;
+  --beige2:#F2EDE0;
+  --beige3:#E8DFC8;
+  --white:#FEFCF8;
+  --t1:#2C1F0A;
+  --t2:#5C4020;
+  --t3:#8C6838;
+  --bd:rgba(184,137,58,.14);
+  --bd2:rgba(184,137,58,.07);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--t1);font-family:'Kufam',sans-serif;overflow-x:hidden;font-size:16px;letter-spacing:0}
+.mono{font-family:'Space Mono',monospace}
+
+/* NAV */
+nav{
+  position:fixed;top:0;right:0;left:0;z-index:300;
+  height:62px;padding:0 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(254,252,248,.95);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--bd);
+}
+.nav-brand{display:flex;align-items:center;gap:.7rem}
+.nav-logo-img{height:36px;width:auto;mix-blend-mode:multiply;object-fit:contain}
+.brand-text{font-size:1rem;color:var(--t1);line-height:1.2}
+.brand-text small{display:block;font-family:'Space Mono',monospace;font-size:.46rem;color:var(--t3);letter-spacing:.15em;text-transform:uppercase;margin-top:.05rem}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.85rem;color:var(--t2);text-decoration:none;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-back{font-size:.78rem;color:var(--green);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:opacity .3s}
+.nav-back:hover{opacity:.7}
+
+/* HERO */
+.hero{
+  min-height:55vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:8rem 3rem 5rem;position:relative;overflow:hidden;
+}
+#hcv{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero>*:not(#hcv){position:relative;z-index:1}
+.h-tag{font-family:'Space Mono',monospace;font-size:.57rem;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:up .9s ease .3s forwards}
+.h-title{font-size:clamp(2.2rem,4.5vw,4rem);line-height:1.2;color:var(--t1);margin-bottom:1rem;opacity:0;animation:up .9s ease .55s forwards;letter-spacing:0}
+.h-title em{color:var(--green);font-style:normal}
+.h-sub{font-size:1.05rem;color:var(--t3);line-height:1.85;max-width:600px;opacity:0;animation:up .9s ease .75s forwards;letter-spacing:0}
+
+/* SECTIONS */
+section{padding:6rem 4rem}
+.sw{max-width:1200px;margin:0 auto}
+.slb{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:.7rem;margin-bottom:1.2rem}
+.slb::after{content:'';height:1px;width:40px;background:currentColor;opacity:.4;display:block}
+.slb.green{color:var(--green)}
+.slb.brown{color:var(--brown)}
+.stitle{font-size:clamp(1.8rem,3vw,2.8rem);color:var(--t1);line-height:1.25;margin-bottom:.8rem}
+.stitle em{font-style:normal}
+.stitle em.g{color:var(--green)}
+.stitle em.gold{color:var(--gold)}
+.stitle em.br{color:var(--brown)}
+.divider{height:1px;background:linear-gradient(to left,transparent,var(--bd),transparent);max-width:1200px;margin:0 auto}
+
+/* ═══ TIMELINE SECTION ═══ */
+.timeline-sec{background:var(--white)}
+
+/* Progress Overview */
+.progress-overview{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--bd);border:1px solid var(--bd);margin-top:3rem;
+}
+.po-card{background:white;padding:2rem;position:relative;overflow:hidden}
+.po-card::before{
+  content:'';position:absolute;top:0;right:0;left:0;height:3px;
+}
+.po-card:nth-child(1)::before{background:var(--green)}
+.po-card:nth-child(2)::before{background:var(--gold)}
+.po-card:nth-child(3)::before{background:var(--brown)}
+.po-month{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.8rem}
+.po-card:nth-child(1) .po-month{color:var(--green)}
+.po-card:nth-child(2) .po-month{color:var(--gold)}
+.po-card:nth-child(3) .po-month{color:var(--brown)}
+.po-title{font-size:1.1rem;color:var(--t1);margin-bottom:1.2rem}
+.po-progress-wrap{margin-bottom:1.2rem}
+.po-progress-label{display:flex;justify-content:space-between;font-size:.75rem;color:var(--t3);margin-bottom:.4rem}
+.po-bar{height:6px;background:var(--beige3);border-radius:3px;overflow:hidden}
+.po-fill{height:100%;border-radius:3px;width:0;transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+.po-card:nth-child(1) .po-fill{background:var(--green)}
+.po-card:nth-child(2) .po-fill{background:var(--gold)}
+.po-card:nth-child(3) .po-fill{background:var(--brown)}
+.po-items{list-style:none}
+.po-items li{font-size:.82rem;color:var(--t2);padding:.35rem 0;border-bottom:1px solid var(--bd2);display:flex;align-items:center;gap:.6rem}
+.po-items li::before{content:'◆';font-size:.3rem;flex-shrink:0;margin-top:.1rem;opacity:.5}
+.po-card:nth-child(1) .po-items li::before{color:var(--green)}
+.po-card:nth-child(2) .po-items li::before{color:var(--gold)}
+.po-card:nth-child(3) .po-items li::before{color:var(--brown)}
+.po-items li:last-child{border-bottom:none}
+
+/* Visual Gantt */
+.gantt-visual{margin-top:3rem}
+.gv-title{font-size:.88rem;color:var(--t1);margin-bottom:1.5rem;font-weight:bold}
+
+.gv-wrap{overflow-x:auto}
+.gv-table{width:100%;border-collapse:collapse;min-width:700px}
+
+.gv-head-row{background:var(--green)}
+.gv-head-row th{
+  padding:.6rem 1rem;font-family:'Space Mono',monospace;
+  font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);font-weight:normal;text-align:right;
+  border-right:1px solid rgba(255,255,255,.1);
+}
+.gv-head-row th:first-child{border-right:2px solid rgba(255,255,255,.2);min-width:180px}
+.gv-head-row th.m1{background:rgba(255,255,255,.08)}
+.gv-head-row th.m2{background:rgba(255,255,255,.05)}
+.gv-head-row th.m3{background:rgba(255,255,255,.03)}
+
+.gv-group-row td{
+  background:var(--t1);padding:.4rem 1rem;
+  font-size:.78rem;color:white;
+}
+
+.gv-row{border-bottom:1px solid var(--bd2);transition:background .2s}
+.gv-row:hover{background:var(--beige)}
+.gv-row td{padding:.3rem .5rem;border-right:1px solid var(--bd2);height:36px;vertical-align:middle}
+.gv-row td:first-child{padding:.3rem 1rem;font-size:.78rem;color:var(--t2);border-right:2px solid var(--bd);min-width:180px}
+.gv-row td.me{border-right:2px solid var(--gold)!important}
+.gv-row:last-child{border-bottom:none}
+.gv-row.alt{background:var(--beige2)}
+.gv-row.alt:hover{background:var(--beige3)}
+
+/* Bar in cell */
+.gbar-wrap{position:relative;height:20px;display:flex;align-items:center}
+.gbar{
+  height:14px;border-radius:2px;width:0;
+  transition:width 1.5s cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:hidden;
+}
+.gbar::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.15),rgba(255,255,255,0));
+  animation:shimmer 2s ease infinite;
+}
+@keyframes shimmer{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+.gbar.g{background:var(--green)}
+.gbar.gold{background:var(--gold)}
+.gbar.br{background:var(--brown)}
+.gbar.light{background:var(--gold-p);border:1px solid var(--gold)}
+.gbar.full{width:100%!important}
+
+/* Diamond milestone */
+.gdiam{
+  width:12px;height:12px;border-radius:1px;
+  transform:rotate(45deg);margin:auto;
+  animation:popIn .4s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes popIn{from{transform:rotate(45deg) scale(0)}to{transform:rotate(45deg) scale(1)}}
+.gdiam.g{background:var(--green)}
+.gdiam.gold{background:var(--gold)}
+.gdiam.dk{background:var(--t1)}
+
+/* Payment marker */
+.pay-marker{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--gold-p);border:2px solid var(--gold);
+  border-radius:2px;padding:.2rem .4rem;
+  font-size:.58rem;color:var(--gold-d);font-family:'Space Mono',monospace;
+  white-space:nowrap;
+}
+
+/* Timeline legend */
+.tl-legend{display:flex;gap:2rem;margin-top:1.5rem;flex-wrap:wrap}
+.tl-leg-item{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--t2)}
+.leg-bar{width:22px;height:8px;border-radius:2px}
+.leg-diam{width:10px;height:10px;transform:rotate(45deg);border-radius:1px}
+
+/* ═══ PRICING SECTION ═══ */
+.pricing-sec{background:var(--beige2)}
+
+/* ROI Calculator card */
+.roi-intro{
+  background:white;border:1px solid var(--bd);
+  border-right:4px solid var(--green);
+  padding:2rem 2.5rem;margin-top:2.5rem;
+  display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;
+}
+.roi-intro p{font-size:.92rem;line-height:1.85;color:var(--t2)}
+.roi-intro strong{color:var(--t1)}
+.roi-tag{
+  background:var(--green);color:white;
+  padding:1rem 1.8rem;text-align:center;white-space:nowrap;
+  border-radius:2px;
+}
+.roi-tag span{font-size:1.5rem;display:block;font-family:'Space Mono',monospace;font-weight:700}
+.roi-tag small{font-size:.7rem;opacity:.7}
+
+/* Service pricing cards */
+.pricing-cards{display:flex;flex-direction:column;gap:2rem;margin-top:3rem}
+
+.svc-card{background:white;border:1px solid var(--bd);overflow:hidden}
+.svc-card-head{
+  padding:1.5rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--bd);
+}
+.svc-head-left{display:flex;align-items:center;gap:1rem}
+.svc-num{
+  width:40px;height:40px;border-radius:2px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Space Mono',monospace;font-size:.8rem;font-weight:700;
+  color:white;flex-shrink:0;
+}
+.svc-card-title{font-size:1.05rem;color:var(--t1);margin-bottom:.2rem}
+.svc-card-sub{font-size:.78rem;color:var(--t3)}
+.svc-price-tag{text-align:left}
+.svc-price-main{font-family:'Space Mono',monospace;font-size:1.6rem;font-weight:700;display:block;line-height:1}
+.svc-price-note{font-size:.7rem;color:var(--t3);margin-top:.2rem;display:block}
+
+.svc-card-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+
+.svc-col{padding:1.8rem 2rem;border-left:1px solid var(--bd2)}
+.svc-col:last-child{border-left:none}
+.svc-col-title{
+  font-family:'Space Mono',monospace;font-size:.52rem;
+  letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:1.2rem;
+}
+.svc-list{list-style:none}
+.svc-list li{
+  font-size:.85rem;color:var(--t2);
+  padding:.45rem 0;border-bottom:1px solid var(--bd2);
+  display:flex;align-items:flex-start;gap:.7rem;line-height:1.5;
+}
+.svc-list li:last-child{border-bottom:none}
+.svc-list li .icon{flex-shrink:0;margin-top:.1rem;font-size:.9rem}
+
+/* ROI calculator inside card */
+.roi-calc{
+  background:var(--beige);border:1px solid var(--bd);
+  padding:1.5rem;margin-top:1.5rem;border-radius:2px;
+}
+.roi-calc-title{font-size:.8rem;color:var(--t1);font-weight:bold;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
+.roi-calc-title span{font-size:.9rem}
+.roi-row{display:flex;align-items:center;gap:1rem;margin-bottom:.8rem;flex-wrap:wrap}
+.roi-label{font-size:.8rem;color:var(--t2);min-width:180px}
+.roi-input{
+  background:white;border:1px solid var(--bd);
+  padding:.35rem .8rem;font-family:'Space Mono',monospace;font-size:.78rem;
+  color:var(--t1);width:120px;border-radius:2px;
+  transition:border-color .3s;
+}
+.roi-input:focus{outline:none;border-color:var(--gold)}
+.roi-result{
+  background:white;border:1px solid var(--bd);
+  border-right:3px solid var(--green);
+  padding:1rem 1.5rem;margin-top:1rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+.roi-result-label{font-size:.82rem;color:var(--t2)}
+.roi-result-val{font-family:'Space Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--green)}
+
+/* Volume pricing table (for call center analytics) */
+.vol-table{width:100%;border-collapse:collapse;margin-top:1rem}
+.vol-table th{
+  background:var(--beige2);padding:.5rem 1rem;
+  text-align:right;font-family:'Space Mono',monospace;
+  font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--t3);border-bottom:1px solid var(--bd);font-weight:normal;
+}
+.vol-table td{
+  padding:.6rem 1rem;border-bottom:1px solid var(--bd2);
+  font-size:.83rem;color:var(--t2);
+}
+.vol-table tr:last-child td{border-bottom:none}
+.vol-table tr:hover td{background:var(--beige)}
+.vol-highlight{font-family:'Space Mono',monospace;font-size:1rem;font-weight:700}
+
+/* TBD badge */
+.tbd-badge{
+  display:inline-block;background:var(--beige3);
+  border:1px solid var(--bd);color:var(--t3);
+  font-family:'Space Mono',monospace;font-size:.6rem;
+  padding:.2rem .7rem;letter-spacing:.1em;
+}
+
+/* Payment summary */
+.payment-summary{
+  margin-top:3rem;background:var(--green);
+  padding:2.5rem;border-radius:2px;
+}
+.ps-title{font-size:1rem;color:white;margin-bottom:2rem;opacity:.7;font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase}
+.ps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.1)}
+.ps-item{background:rgba(255,255,255,.05);padding:1.5rem;transition:background .3s}
+.ps-item:hover{background:rgba(255,255,255,.1)}
+.ps-item-label{font-size:.75rem;color:rgba(255,255,255,.55);margin-bottom:.5rem}
+.ps-item-val{font-family:'Space Mono',monospace;font-size:1.3rem;font-weight:700;color:white;display:block;margin-bottom:.2rem}
+.ps-item-note{font-size:.7rem;color:rgba(255,255,255,.4)}
+
+/* Example calc */
+.example-calc{
+  margin-top:1px;background:rgba(255,255,255,.08);
+  padding:1.5rem;
+}
+.ec-title{font-size:.75rem;color:rgba(255,255,255,.55);margin-bottom:1rem;font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase}
+.ec-row{display:flex;justify-content:space-between;align-items:center;padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.82rem}
+.ec-row:last-child{border-bottom:none;font-weight:bold;padding-top:.8rem}
+.ec-label{color:rgba(255,255,255,.6)}
+.ec-val{font-family:'Space Mono',monospace;color:white}
+.ec-row.total .ec-val{color:var(--gold-l);font-size:1rem}
+
+/* CTA */
+.cta-sec{background:var(--gold);padding:5rem 4rem;text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:'مخرج نجد';font-family:'Kufam',sans-serif;font-size:16vw;color:rgba(255,255,255,.04);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none}
+.cta-label{font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.35em;color:rgba(255,255,255,.45);text-transform:uppercase;margin-bottom:1.5rem;position:relative}
+.cta-title{font-size:clamp(1.7rem,3vw,2.8rem);color:white;margin-bottom:1rem;position:relative;line-height:1.3}
+.cta-sub{font-size:.92rem;color:rgba(255,255,255,.65);margin-bottom:2.5rem;position:relative;max-width:520px;margin-inline:auto;line-height:1.8}
+.cta-btn{display:inline-block;background:white;color:var(--gold-d);padding:1rem 3rem;font-family:'Kufam',sans-serif;font-size:.9rem;text-decoration:none;border-radius:2px;transition:all .3s;position:relative;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.cta-btn:hover{background:var(--green);color:white;transform:translateY(-2px)}
+
+.footer-bar{background:var(--t1);padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center}
+.footer-bar p{font-family:'Space Mono',monospace;font-size:.53rem;color:rgba(255,255,255,.3);letter-spacing:.1em}
+
+/* ANIMATIONS */
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.r{opacity:0;transform:translateY(16px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.r.v{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:0 1.2rem}.nav-links{display:none}
+  section{padding:4rem 1.2rem}
+  .hero{padding:7rem 1.2rem 4rem}
+  .progress-overview{grid-template-columns:1fr}
+  .svc-card-body{grid-template-columns:1fr}
+  .ps-grid{grid-template-columns:1fr}
+  .roi-intro{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <img src="njdexit-logo.jpeg" alt="مخرج نجد" class="nav-logo-img">
+    <div class="brand-text">مخرج نجد<small>NJDEXIT · DIGITAL TRANSFORMATION</small></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#timeline">الخطة الزمنية</a></li>
+    <li><a href="#pricing">التسعيرة</a></li>
+  </ul>
+  <a href="njdexit-proposal-v7.html" class="nav-back mono" style="font-size:.72rem;color:var(--green)">← العرض الرئيسي</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="hcv"></canvas>
+  <p class="h-tag" style="letter-spacing:.12em;font-size:.75rem">مستشفى المدينة الطبي · خطة التنفيذ والتسعيرة</p>
+  <h1 class="h-title">الخطة الزمنية<br><em>وعرض الأسعار</em></h1>
+  <p class="h-sub">نسبة الإنجاز شهراً بشهر · تفصيل كامل لكل خدمة · مقارنة بالإيراد الضائع</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- TIMELINE -->
+<section class="timeline-sec" id="timeline">
+  <div class="sw">
+    <div class="slb green">الخطة الزمنية</div>
+    <h2 class="stitle r">خارطة الإنجاز<br><em class="g">12 أسبوعاً — 3 مراحل</em></h2>
+
+    <!-- Progress Cards -->
+    <div class="progress-overview r">
+      <div class="po-card">
+        <div class="po-month">الشهر الأول</div>
+        <div class="po-title">البناء والاختبار</div>
+        <div class="po-progress-wrap">
+          <div class="po-progress-label"><span>نسبة الإنجاز الكلي</span><span class="mono" id="p1-pct">0%</span></div>
+          <div class="po-bar"><div class="po-fill" id="p1-bar"></div></div>
+        </div>
+        <ul class="po-items">
+          <li>أ١–أ٢: بناء منصة الحجز والبوت وكول سنتر التشغيلي</li>
+          <li>أ١–أ٢: إضافة عيادة د. نورا + تنظيف البشرة + الليزر</li>
+          <li>أ٣–أ٤: اختبار جميع الأنظمة والعيادات</li>
+          <li>أ٣–أ٤: تفعيل واتساب AI لعيادة د. نورا وتنظيف البشرة</li>
+          <li>أ٣–أ٤: تفعيل كول سنتر التشغيلي للاختبار</li>
+          <li>إصدار تقرير نهاية الشهر الأول</li>
+        </ul>
+      </div>
+      <div class="po-card">
+        <div class="po-month">الشهر الثاني</div>
+        <div class="po-title">التدرج والتوسع</div>
+        <div class="po-progress-wrap">
+          <div class="po-progress-label"><span>نسبة الإنجاز الكلي</span><span class="mono" id="p2-pct">0%</span></div>
+          <div class="po-bar"><div class="po-fill" id="p2-bar"></div></div>
+        </div>
+        <ul class="po-items">
+          <li>ب١–ب٢: اختبار كول سنتر التشغيلي وتقييم أدائه</li>
+          <li>ب١–ب٢: اختبار واتساب AI بالبيانات الفعلية</li>
+          <li>ب٣–ب٤: إضافة الأطباء والعيادات تدريجياً</li>
+          <li>ب٣–ب٤: تفعيل واتساب AI لقسم الليزر</li>
+          <li>بناء نظام حجز متوافق مع آلية كل عيادة</li>
+          <li>إصدار تقرير نهاية الشهر الثاني</li>
+        </ul>
+      </div>
+      <div class="po-card">
+        <div class="po-month">الشهر الثالث</div>
+        <div class="po-title">التقييم والتسليم</div>
+        <div class="po-progress-wrap">
+          <div class="po-progress-label"><span>نسبة الإنجاز الكلي</span><span class="mono" id="p3-pct">0%</span></div>
+          <div class="po-bar"><div class="po-fill" id="p3-bar"></div></div>
+        </div>
+        <ul class="po-items">
+          <li>تقييم شامل لجميع الأنظمة والعيادات</li>
+          <li>تقرير أداء الكول سنتر التشغيلي</li>
+          <li>تقرير أداء واتساب AI لكل عيادة</li>
+          <li>إصدار التقرير النهائي الشامل للثلاثة أشهر</li>
+          <li>استلام المبلغ الكامل ونقل النظام للسيرفر</li>
+          <li>توقيع عقد الاشتراك الشهري المستمر</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Gantt Chart -->
+    <div class="gantt-visual r">
+      <div class="gv-wrap">
+        <table class="gv-table">
+          <thead>
+            <tr class="gv-head-row">
+              <th rowspan="2" style="vertical-align:middle">المهمة</th>
+              <th colspan="4" class="m1" style="text-align:center;border-bottom:1px solid rgba(255,255,255,.1)">الشهر الأول — التأسيس</th>
+              <th colspan="4" class="m2" style="text-align:center;border-bottom:1px solid rgba(255,255,255,.1)">الشهر الثاني — التوسع</th>
+              <th colspan="4" class="m3" style="text-align:center;border-bottom:1px solid rgba(255,255,255,.1)">الشهر الثالث — التسليم</th>
+            </tr>
+            <tr class="gv-head-row">
+              <th class="m1">أ١</th><th class="m1">أ٢</th><th class="m1">أ٣</th><th class="m1" style="border-right:2px solid rgba(255,255,255,.3)">أ٤</th>
+              <th class="m2">ب١</th><th class="m2">ب٢</th><th class="m2">ب٣</th><th class="m2" style="border-right:2px solid rgba(255,255,255,.3)">ب٤</th>
+              <th class="m3">ج١</th><th class="m3">ج٢</th><th class="m3">ج٣</th><th class="m3">ج٤</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- GROUP 1: PLATFORM -->
+            <tr><td colspan="13" class="gv-group-row">🖥 منصة الحجز الرقمي</td></tr>
+            <tr class="gv-row">
+              <td>بناء المنصة الأساسية</td>
+              <td><div class="gbar-wrap"><div class="gbar g full"></div></div></td>
+              <td><div class="gbar-wrap"><div class="gbar g full"></div></div></td>
+              <td></td><td class="me"></td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr class="gv-row alt">
+              <td style="padding-right:2rem;font-size:.73rem">— عيادة د. نورا + تنظيف البشرة + الليزر</td>
+              <td><div class="gbar-wrap"><div class="gbar g full"></div></div></td>
+              <td><div class="gbar-wrap"><div class="gbar g full"></div></div></td>
+              <td></td><td class="me"></td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr class="gv-row">
+              <td style="padding-right:2rem;font-size:.73rem">— ربط سلة الدفع</td>
+              <td><div class="gbar-wrap"><div class="gbar gold full"></div></div></td>
+              <td><div class="gbar-wrap"><div class="gbar gold full"></div></div></td>
+              <td></td><td class="me"></td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr class="gv-row alt">
+              <td style="padding-right:2rem;font-size:.73rem">— اختبار المنصة والعيادات</td>
+              <td></td><td></td>
+              <td><div class="gbar-wrap"><div class="gbar light full"></div></div></td>
+              <td class="me"><div class="gbar-wrap"><div class="gbar light full"></div></div></td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr class="gv-row">
+              <td style="padding-right:2rem;font-size:.73rem">— إضافة الأطباء والعيادات تدريجياً</td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td>
+              <td><div class="gbar-wrap"><div class="gbar g full"></div></div></td>
+              <td class="me"><div class="gbar-wrap"><div class="gbar g full"></div></div></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+
+            <!-- GROUP 2: WHATSAPP -->
+            <tr><td colspan="13" class="gv-group-row">💬 بوت واتساب AI</td></tr>
+            <tr class="gv-row">
+              <td>تفعيل واتساب — د. نورا + تنظيف البشرة</td>
+              <td></td><td></td>
+              <td><div class="gbar-wrap"><div class="gbar g full"></div></div></td>
+              <td class="me"><div class="gbar-wrap"><div class="gbar g full"></div></div></td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr class="gv-row alt">
+              <td style="padding-right:2rem;font-size:.73rem">— اختبار وتحسين بالبيانات الفعلية</td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td><div class="gbar-wrap"><div class="gbar gold full"></div></div></td>
+              <td><div class="gbar-wrap"><div class="gbar gold full"></div></div></td>
+              <td></td><td class="me"></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr class="gv-row">
+              <td style="padding-right:2rem;font-size:.73rem">— تفعيل تدريجي لكل العيادات</td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td>
+              <td><div class="gbar-wrap"><div class="gbar g full"></div></div></td>
+              <td class="me"><div class="gbar-wrap"><div class="gbar g full"></div></div></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+
+            <!-- GROUP 3: CALL CENTER -->
+            <tr><td colspan="13" class="gv-group-row">📞 كول سنتر التشغيلي</td></tr>
+            <tr class="gv-row">
+              <td>بناء الكول سنتر التشغيلي</td>
+              <td></td><td></td>
+              <td><div class="gbar-wrap"><div class="gbar br full"></div></div></td>
+              <td class="me"><div class="gbar-wrap"><div class="gbar br full"></div></div></td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr class="gv-row alt">
+              <td style="padding-right:2rem;font-size:.73rem">— تفعيل وتقييم الأداء</td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td><div class="gbar-wrap"><div class="gbar br full"></div></div></td>
+              <td><div class="gbar-wrap"><div class="gbar br full"></div></div></td>
+              <td></td><td class="me"></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+
+            <!-- GROUP 4: CALL CENTER ANALYTICS -->
+            <tr><td colspan="13" class="gv-group-row">📊 كول سنتر التحليلي</td></tr>
+            <tr class="gv-row">
+              <td>تحليل الاتصالات التاريخية</td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td><div class="gbar-wrap"><div class="gbar gold full"></div></div></td>
+              <td><div class="gbar-wrap"><div class="gbar gold full"></div></div></td>
+              <td><div class="gbar-wrap"><div class="gbar gold full"></div></div></td>
+              <td class="me"><div class="gbar-wrap"><div class="gbar gold full"></div></div></td>
+              <td><div class="gbar-wrap"><div class="gbar gold full"></div></div></td>
+              <td><div class="gbar-wrap"><div class="gbar gold full"></div></div></td>
+              <td></td><td></td>
+            </tr>
+            <tr class="gv-row alt">
+              <td style="padding-right:2rem;font-size:.73rem">— تقرير تنفيذي وعرض الإدارة</td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td>
+              <td><div class="gbar-wrap"><div class="gbar light full"></div></div></td>
+              <td><div class="gbar-wrap"><div class="gbar light full"></div></div></td>
+            </tr>
+
+            <!-- GROUP 5: REPORTS -->
+            <tr><td colspan="13" class="gv-group-row">📈 التقارير والتقييم</td></tr>
+            <tr class="gv-row">
+              <td>تقارير الأداء الدورية</td>
+              <td></td><td></td><td></td>
+              <td class="me"><div class="gbar-wrap"><div style="display:flex;justify-content:center;width:100%"><div class="gdiam gold"></div></div></div></td>
+              <td></td><td></td><td></td>
+              <td class="me"><div class="gbar-wrap"><div style="display:flex;justify-content:center;width:100%"><div class="gdiam gold"></div></div></div></td>
+              <td></td><td></td><td></td>
+              <td><div class="gbar-wrap"><div style="display:flex;justify-content:center;width:100%"><div class="gdiam dk"></div></div></div></td>
+            </tr>
+
+            <!-- GROUP 6: DELIVERY -->
+            <tr><td colspan="13" class="gv-group-row">🎯 التسليم النهائي</td></tr>
+            <tr class="gv-row">
+              <td>نقل النظام للسيرفر</td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td>
+              <td><div class="gbar-wrap"><div class="gbar br full"></div></div></td>
+              <td><div class="gbar-wrap"><div class="gbar br full"></div></div></td>
+            </tr>
+            <tr class="gv-row" style="background:var(--gold-p)">
+              <td style="font-weight:bold;color:var(--t1)">💰 استلام المبلغ الكامل</td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td><td></td><td class="me"></td>
+              <td></td><td></td><td></td>
+              <td><div class="gbar-wrap"><div style="display:flex;justify-content:center;width:100%"><div class="pay-marker">PAYMENT</div></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Legend -->
+      <div class="tl-legend">
+        <div class="tl-leg-item"><div class="leg-bar" style="background:var(--green)"></div>مهام رئيسية</div>
+        <div class="tl-leg-item"><div class="leg-bar" style="background:var(--gold)"></div>مهام مستمرة</div>
+        <div class="tl-leg-item"><div class="leg-bar" style="background:var(--gold-p);border:1px solid var(--gold)"></div>مهام مشتركة</div>
+        <div class="tl-leg-item"><div class="leg-bar" style="background:var(--brown)"></div>تسليم نهائي</div>
+        <div class="tl-leg-item"><div class="leg-diam" style="background:var(--gold)"></div>نقطة تقرير</div>
+        <div class="tl-leg-item"><div class="pay-marker" style="font-size:.52rem;padding:.1rem .4rem">PAYMENT</div>استلام المبلغ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRICING -->
+<section class="pricing-sec" id="pricing">
+  <div class="sw">
+    <div class="slb gold">التسعيرة التفصيلية</div>
+    <h2 class="stitle r">ليس تكلفة —<br><em class="gold">بل إيراد مستعاد</em></h2>
+
+    <div class="roi-intro r">
+      <p>كل ريال تدفعه المستشفى مقابل هذه المنظومة يُمثّل <strong>استعادة إيراد ضائع</strong> — مواعيد فائتة، استفسارات غير مُجابة، ومرضى لجأوا للمنافسين. الأرقام أدناه قابلة للتخصيص بمجرد تزويدنا ببيانات المستشفى الفعلية.</p>
+      <div class="roi-tag">
+        <span>ROI</span>
+        <small>العائد على الاستثمار</small>
+      </div>
+    </div>
+
+    <div class="pricing-cards">
+
+      <!-- SERVICE 1: Booking Platform -->
+      <div class="svc-card r">
+        <div class="svc-card-head">
+          <div class="svc-head-left">
+            <div class="svc-num" style="background:var(--green)">01</div>
+            <div>
+              <div class="svc-card-title">منصة الحجز الرقمي</div>
+              <div class="svc-card-sub">استثمار تأسيسي — مرة واحدة للمستشفى كله</div>
+            </div>
+          </div>
+          <div class="svc-price-tag">
+            <span class="svc-price-main mono" style="color:var(--green)">45,000</span>
+            <span class="svc-price-note">ريال · تُسدَّد بعد انتهاء فترة الاختبار</span>
+          </div>
+        </div>
+        <div class="svc-card-body">
+          <div class="svc-col">
+            <div class="svc-col-title" style="color:var(--green)">ما تحصل عليه المستشفى</div>
+            <ul class="svc-list">
+              <li><span class="icon">🖥</span>منصة حجز مخصصة لكل عيادة برابط مستقل</li>
+              <li><span class="icon">👑</span>لوحة تحكم Super Admin بصلاحيات كاملة</li>
+              <li><span class="icon">👨‍⚕️</span>لوحة تحكم مستقلة لكل طبيب</li>
+              <li><span class="icon">⏰</span>تحكم كامل بساعات العمل وإيقاف الحجز</li>
+              <li><span class="icon">🛒</span>ربط مباشر بسلة الدفع الخاصة بالمستشفى</li>
+              <li><span class="icon">📊</span>إحصائيات تفصيلية لكل عيادة</li>
+              <li><span class="icon">☁️</span>نقل كامل للسيرفر بعد انتهاء المدة</li>
+            </ul>
+          </div>
+          <div class="svc-col">
+            <div class="svc-col-title" style="color:var(--green)">الإيراد الضائع بدونها</div>
+            <div class="roi-calc">
+              <div class="roi-calc-title"><span>🧮</span> احسب الإيراد الضائع شهرياً</div>
+              <div class="roi-row">
+                <label class="roi-label">متوسط المواعيد اليومية</label>
+                <input type="number" class="roi-input" id="b1" value="20" oninput="calcBooking()">
+              </div>
+              <div class="roi-row">
+                <label class="roi-label">نسبة المواعيد الضائعة %</label>
+                <input type="number" class="roi-input" id="b2" value="20" oninput="calcBooking()">
+              </div>
+              <div class="roi-row">
+                <label class="roi-label">متوسط قيمة الموعد (ريال)</label>
+                <input type="number" class="roi-input" id="b3" value="200" oninput="calcBooking()">
+              </div>
+              <div class="roi-result">
+                <span class="roi-result-label">الإيراد الضائع شهرياً</span>
+                <span class="roi-result-val mono" id="b-result">24,000 ريال</span>
+              </div>
+            </div>
+            <p style="font-size:.75rem;color:var(--t3);margin-top:.8rem;line-height:1.6">منصة الحجز تستعيد هذا الإيراد تلقائياً — الحجز متاح 24/7 بدون تدخل بشري.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE 2: WhatsApp AI -->
+      <div class="svc-card r">
+        <div class="svc-card-head">
+          <div class="svc-head-left">
+            <div class="svc-num" style="background:var(--gold)">02</div>
+            <div>
+              <div class="svc-card-title">بوت واتساب بالذكاء الاصطناعي</div>
+              <div class="svc-card-sub">اشتراك شهري · يُحتسب لكل عيادة على حدة</div>
+            </div>
+          </div>
+          <div class="svc-price-tag">
+            <span class="svc-price-main mono" style="color:var(--gold)">1,700</span>
+            <span class="svc-price-note">ريال / عيادة / شهر</span>
+          </div>
+        </div>
+        <div class="svc-card-body">
+          <div class="svc-col">
+            <div class="svc-col-title" style="color:var(--gold)">ما تحصل عليه العيادة</div>
+            <ul class="svc-list">
+              <li><span class="icon">🤖</span>رد تلقائي ذكي على جميع الاستفسارات 24/7</li>
+              <li><span class="icon">💰</span>عرض الأسعار تفاعلياً بدون قوائم مطولة</li>
+              <li><span class="icon">📅</span>توجيه للحجز المباشر أو سلة الدفع</li>
+              <li><span class="icon">🔄</span>تصعيد تلقائي للطبيب (Handoff) عند الحاجة</li>
+              <li><span class="icon">⚠️</span>تنبيهات ما بعد الجلسة تلقائياً</li>
+              <li><span class="icon">📈</span>تقرير شهري بأكثر الأسئلة تكراراً</li>
+            </ul>
+          </div>
+          <div class="svc-col">
+            <div class="svc-col-title" style="color:var(--gold)">الإيراد الضائع بدونه</div>
+            <div class="roi-calc">
+              <div class="roi-calc-title"><span>🧮</span> احسب تكلفة الردود الفائتة</div>
+              <div class="roi-row">
+                <label class="roi-label">رسائل واتساب يومياً</label>
+                <input type="number" class="roi-input" id="w1" value="30" oninput="calcWA()">
+              </div>
+              <div class="roi-row">
+                <label class="roi-label">نسبة ما لم يُرد عليه %</label>
+                <input type="number" class="roi-input" id="w2" value="30" oninput="calcWA()">
+              </div>
+              <div class="roi-row">
+                <label class="roi-label">نسبة التحول لموعد %</label>
+                <input type="number" class="roi-input" id="w3" value="25" oninput="calcWA()">
+              </div>
+              <div class="roi-result">
+                <span class="roi-result-label">مواعيد ضائعة شهرياً</span>
+                <span class="roi-result-val mono" id="w-result">67 موعد</span>
+              </div>
+            </div>
+            <p style="font-size:.75rem;color:var(--t3);margin-top:.8rem;line-height:1.6">البوت يرد على 100% من الرسائل فورياً — بما فيها ما بعد الدوام وأوقات الذروة.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE 3: Call Center Analytics -->
+      <div class="svc-card r">
+        <div class="svc-card-head">
+          <div class="svc-head-left">
+            <div class="svc-num" style="background:var(--brown)">03</div>
+            <div>
+              <div class="svc-card-title">الكول سنتر التحليلي</div>
+              <div class="svc-card-sub">خدمة منفصلة لمرة واحدة · تسعيرة حسب الحجم</div>
+            </div>
+          </div>
+          <div class="svc-price-tag">
+            <span class="svc-price-main mono" style="color:var(--brown)">25,000</span>
+            <span class="svc-price-note">ريال · الحد الأقصى · حسب عدد الاتصالات</span>
+          </div>
+        </div>
+        <div class="svc-card-body">
+          <div class="svc-col">
+            <div class="svc-col-title" style="color:var(--brown)">ما تحصل عليه المستشفى</div>
+            <ul class="svc-list">
+              <li><span class="icon">🎙</span>تحويل جميع التسجيلات الصوتية إلى نص</li>
+              <li><span class="icon">🔍</span>تحليل أسباب الاتصال وتصنيفها تلقائياً</li>
+              <li><span class="icon">📉</span>كشف الاتصالات المفقودة وأوقاتها</li>
+              <li><span class="icon">🗺</span>خريطة أوقات الذروة للتخطيط الأفضل</li>
+              <li><span class="icon">📋</span>تقرير تنفيذي شامل بالنتائج والتوصيات</li>
+              <li><span class="icon">🎯</span>عرض تقديمي لمجلس الإدارة</li>
+            </ul>
+
+            <!-- Volume pricing -->
+            <table class="vol-table" style="margin-top:1.5rem">
+              <thead><tr><th>عدد الاتصالات</th><th>المدة</th><th>السعر</th></tr></thead>
+              <tbody>
+                <tr><td>حتى 50,000 اتصال</td><td class="mono">3-4 أسابيع</td><td><span class="vol-highlight mono" style="color:var(--brown)">8,000</span> ريال</td></tr>
+                <tr><td>حتى 150,000 اتصال</td><td class="mono">6-8 أسابيع</td><td><span class="vol-highlight mono" style="color:var(--brown)">15,000</span> ريال</td></tr>
+                <tr><td>حتى 300,000 اتصال</td><td class="mono">10-12 أسبوع</td><td><span class="vol-highlight mono" style="color:var(--brown)">25,000</span> ريال</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="svc-col">
+            <div class="svc-col-title" style="color:var(--brown)">الإيراد الضائع بدونه</div>
+            <div class="roi-calc">
+              <div class="roi-calc-title"><span>🧮</span> الاتصالات المفقودة = إيراد ضائع</div>
+              <div class="roi-row">
+                <label class="roi-label">إجمالي المكالمات الشهرية</label>
+                <input type="number" class="roi-input" id="c1" value="300" oninput="calcCall()">
+              </div>
+              <div class="roi-row">
+                <label class="roi-label">نسبة الاتصالات المفقودة %</label>
+                <input type="number" class="roi-input" id="c2" value="25" oninput="calcCall()">
+              </div>
+              <div class="roi-row">
+                <label class="roi-label">نسبة التحول لموعد %</label>
+                <input type="number" class="roi-input" id="c3" value="30" oninput="calcCall()">
+              </div>
+              <div class="roi-row">
+                <label class="roi-label">متوسط قيمة الموعد (ريال)</label>
+                <input type="number" class="roi-input" id="c4" value="200" oninput="calcCall()">
+              </div>
+              <div class="roi-result">
+                <span class="roi-result-label">إيراد ضائع شهرياً</span>
+                <span class="roi-result-val mono" id="c-result">4,500 ريال</span>
+              </div>
+            </div>
+            <p style="font-size:.75rem;color:var(--t3);margin-top:.8rem;line-height:1.6">التحليل يكشف أين تذهب هذه الاتصالات ولماذا — ويبني أساس الكول سنتر التشغيلي.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE 4: Call Center Operational -->
+      <div class="svc-card r">
+        <div class="svc-card-head">
+          <div class="svc-head-left">
+            <div class="svc-num" style="background:var(--green-l)">04</div>
+            <div>
+              <div class="svc-card-title">الكول سنتر التشغيلي</div>
+              <div class="svc-card-sub">اشتراك شهري للمستشفى كله · يُفعَّل بعد التسليم</div>
+            </div>
+          </div>
+          <div class="svc-price-tag">
+            <span class="svc-price-main mono" style="color:var(--green-l)">5,500</span>
+            <span class="svc-price-note">ريال / شهر · للمستشفى كله</span>
+          </div>
+        </div>
+        <div class="svc-card-body">
+          <div class="svc-col">
+            <div class="svc-col-title" style="color:var(--green-l)">ما يشمله الاشتراك الشهري</div>
+            <ul class="svc-list">
+              <li><span class="icon">📞</span><div><strong>ربط الرقم السعودي الموحد</strong><br><span style="font-size:.75rem;color:var(--t3)">عبر Twilio أو اتصالات — رقم مخصص يستقبل المكالمات</span></div></li>
+              <li><span class="icon">🎙</span><div><strong>التسجيل الصوتي التلقائي</strong><br><span style="font-size:.75rem;color:var(--t3)">كل مكالمة تُسجَّل وتُحفظ تلقائياً في السحابة</span></div></li>
+              <li><span class="icon">🤖</span><div><strong>الرد الصوتي بالذكاء الاصطناعي</strong><br><span style="font-size:.75rem;color:var(--t3)">صوت عربي طبيعي يرد على الأسئلة الروتينية</span></div></li>
+              <li><span class="icon">👤</span><div><strong>التحويل الذكي للموظف</strong><br><span style="font-size:.75rem;color:var(--t3)">السؤال الطبي يُحوَّل فوراً لموظف بشري</span></div></li>
+              <li><span class="icon">📝</span><div><strong>ملخص كل مكالمة تلقائياً</strong><br><span style="font-size:.75rem;color:var(--t3)">AI يكتب ملخصاً نصياً بعد كل مكالمة للمشرف</span></div></li>
+              <li><span class="icon">📊</span><div><strong>تقرير أداء شهري</strong><br><span style="font-size:.75rem;color:var(--t3)">نسبة الردود، أوقات الذروة، أبرز الأسئلة</span></div></li>
+            </ul>
+          </div>
+          <div class="svc-col">
+            <div class="svc-col-title" style="color:var(--green-l)">تفصيل الاشتراك الشهري</div>
+            <div style="background:var(--beige);border:1px solid var(--bd);border-right:3px solid var(--green-l);padding:1.5rem">
+              <div style="display:flex;justify-content:space-between;padding:.45rem 0;border-bottom:1px solid var(--bd2);font-size:.82rem"><span style="color:var(--t2)">ربط الرقم الموحد وإدارته</span><span class="mono" style="color:var(--t1)">1,500 ريال</span></div>
+              <div style="display:flex;justify-content:space-between;padding:.45rem 0;border-bottom:1px solid var(--bd2);font-size:.82rem"><span style="color:var(--t2)">الرد الصوتي بالذكاء الاصطناعي</span><span class="mono" style="color:var(--t1)">2,000 ريال</span></div>
+              <div style="display:flex;justify-content:space-between;padding:.45rem 0;border-bottom:1px solid var(--bd2);font-size:.82rem"><span style="color:var(--t2)">التسجيل الصوتي والأرشفة السحابية</span><span class="mono" style="color:var(--t1)">1,000 ريال</span></div>
+              <div style="display:flex;justify-content:space-between;padding:.45rem 0;border-bottom:1px solid var(--bd2);font-size:.82rem"><span style="color:var(--t2)">ملخص المكالمات التلقائي</span><span class="mono" style="color:var(--t1)">1,000 ريال</span></div>
+              <div style="display:flex;justify-content:space-between;padding:.55rem 0;font-size:.88rem;font-weight:bold;margin-top:.2rem"><span style="color:var(--t1)">إجمالي الاشتراك الشهري</span><span class="mono" style="color:var(--green-l)">5,500 ريال</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Payment Summary -->
+    <div class="payment-summary r">
+      <div class="ps-title">ملخص التسعيرة الكاملة</div>
+      <!-- One-time purchases -->
+      <div style="margin-bottom:.8rem">
+        <div style="font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.6rem">مدفوعات لمرة واحدة — بعد انتهاء فترة الاختبار</div>
+        <div class="ps-grid" style="grid-template-columns:1fr 1fr">
+          <div class="ps-item">
+            <div class="ps-item-label">منصة الحجز الرقمي</div>
+            <span class="ps-item-val mono">45,000</span>
+            <div class="ps-item-note">ريال · شراء نهائي · نقل كامل للسيرفر</div>
+          </div>
+          <div class="ps-item">
+            <div class="ps-item-label">الكول سنتر التحليلي</div>
+            <span class="ps-item-val mono">حتى 25,000</span>
+            <div class="ps-item-note">ريال · حسب عدد الاتصالات</div>
+          </div>
+        </div>
+      </div>
+      <!-- Monthly subscriptions -->
+      <div style="margin-bottom:.8rem">
+        <div style="font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.6rem">اشتراكات شهرية مستمرة</div>
+        <div class="ps-grid">
+          <div class="ps-item">
+            <div class="ps-item-label">بوت واتساب AI</div>
+            <span class="ps-item-val mono">1,700</span>
+            <div class="ps-item-note">ريال / عيادة / شهر</div>
+          </div>
+          <div class="ps-item">
+            <div class="ps-item-label">الكول سنتر التشغيلي</div>
+            <span class="ps-item-val mono">5,500</span>
+            <div class="ps-item-note">ريال / شهر · للمستشفى كله</div>
+          </div>
+          <div class="ps-item" style="background:rgba(255,255,255,.08)">
+            <div class="ps-item-label">مثال: 5 عيادات شهرياً</div>
+            <span class="ps-item-val mono" style="color:var(--gold-l)">14,000</span>
+            <div class="ps-item-note">واتساب 8,500 + كول سنتر 5,500</div>
+          </div>
+        </div>
+      </div>
+      <div class="example-calc">
+        <div class="ec-title">ملخص السنة الأولى — مستشفى بـ 5 عيادات</div>
+        <div class="ec-row"><span class="ec-label">منصة الحجز (شراء مرة واحدة)</span><span class="ec-val mono">45,000 ريال</span></div>
+        <div class="ec-row"><span class="ec-label">كول سنتر تحليلي (شراء مرة واحدة)</span><span class="ec-val mono">25,000 ريال</span></div>
+        <div class="ec-row"><span class="ec-label">واتساب AI × 5 عيادات × 12 شهر</span><span class="ec-val mono">102,000 ريال</span></div>
+        <div class="ec-row"><span class="ec-label">كول سنتر تشغيلي × 12 شهر</span><span class="ec-val mono">66,000 ريال</span></div>
+        <div class="ec-row total"><span class="ec-label">إجمالي السنة الأولى</span><span class="ec-val mono">238,000 ريال</span></div>
+        <div style="margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.1)">
+          <div class="ec-row" style="padding:.2rem 0"><span class="ec-label" style="font-size:.75rem;color:rgba(255,255,255,.4)">السنوات اللاحقة (اشتراك فقط)</span><span class="ec-val mono" style="font-size:.82rem;color:rgba(255,255,255,.5)">168,000 ريال/سنة</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GOLDEN GUARANTEE -->
+<div style="background:var(--green);padding:6rem 4rem;position:relative;overflow:hidden">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Space Mono',monospace;font-size:18vw;font-weight:700;color:rgba(255,255,255,.03);white-space:nowrap;pointer-events:none;letter-spacing:-.02em">GUARANTEE</div>
+
+  <div style="max-width:900px;margin:0 auto;text-align:center;position:relative">
+    <!-- Gold seal -->
+    <div style="display:inline-flex;align-items:center;justify-content:center;width:80px;height:80px;background:var(--gold);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);margin-bottom:2rem;box-shadow:0 8px 32px rgba(184,137,58,.4)">
+      <span style="font-size:1.8rem;margin-top:.5rem">★</span>
+    </div>
+
+    <div style="font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.38em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:1.2rem">الضمان الذهبي — مخرج نجد</div>
+
+    <h2 style="font-family:'Kufam',sans-serif;font-size:clamp(1.8rem,3.5vw,3rem);color:white;line-height:1.3;margin-bottom:1.5rem">النتائج تتكلم<br>قبل أن تبدأ الأرقام</h2>
+
+    <p style="font-size:1rem;color:rgba(255,255,255,.7);line-height:1.9;max-width:680px;margin:0 auto 3rem;font-family:'Kufam',sans-serif">
+      تقارير واضحة بأرقام حقيقية وأثر ملموس على الحجوزات والإيراد. فقط عندما تتأكد الإدارة من النتائج يبدأ الاستحقاق المالي. هذا هو التزامنا الحقيقي تجاه مستشفى المدينة الطبي.
+    </p>
+
+    <!-- Three pillars -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.1);margin-bottom:3rem;text-align:right">
+      <div style="background:rgba(255,255,255,.05);padding:1.8rem;transition:background .3s" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.05)'">
+        <div style="font-size:1.5rem;margin-bottom:.8rem">📊</div>
+        <div style="font-size:.9rem;color:white;margin-bottom:.5rem;font-family:'Kufam',sans-serif">النتيجة أولاً</div>
+        <div style="font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.7;font-family:'Kufam',sans-serif">تقارير شهرية بالأرقام الفعلية — حجوزات، ردود، واتصالات. الإدارة ترى الأثر قبل أي التزام مالي.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);padding:1.8rem;transition:background .3s" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.05)'">
+        <div style="font-size:1.5rem;margin-bottom:.8rem">🔒</div>
+        <div style="font-size:.9rem;color:white;margin-bottom:.5rem;font-family:'Kufam',sans-serif">الدفع مرتبط بالإثبات</div>
+        <div style="font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.7;font-family:'Kufam',sans-serif">الاستحقاق المالي لا يبدأ إلا بعد انتهاء فترة التشغيل الفعلي وتأكيد الإدارة من الأثر الحقيقي.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);padding:1.8rem;transition:background .3s" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.05)'">
+        <div style="font-size:1.5rem;margin-bottom:.8rem">🤝</div>
+        <div style="font-size:.9rem;color:white;margin-bottom:.5rem;font-family:'Kufam',sans-serif">شراكة طويلة الأمد</div>
+        <div style="font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.7;font-family:'Kufam',sans-serif">نجاح المنظومة مرتبط مباشرة بنجاح المستشفى — لذلك نضع مصداقيتنا ووقتنا في المقدمة.</div>
+      </div>
+    </div>
+
+    <!-- Signature line -->
+    <div style="border-top:1px solid rgba(255,255,255,.12);padding-top:2rem;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap">
+      <img src="njdexit-logo.jpeg" alt="مخرج نجد" style="height:32px;width:auto;mix-blend-mode:screen;opacity:.7;object-fit:contain">
+      <div style="text-align:right">
+        <div style="font-size:.85rem;color:white;font-family:'Kufam',sans-serif">مخرج نجد للحلول الرقمية</div>
+        <div style="font-family:'Space Mono',monospace;font-size:.52rem;color:rgba(255,255,255,.4);letter-spacing:.1em;margin-top:.2rem">NJDEXIT · DIGITAL TRANSFORMATION</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">
+  <p>© 2025 مخرج نجد — جميع الحقوق محفوظة</p>
+  <p style="color:rgba(255,255,255,.2)">NJDEXIT · PRICING & TIMELINE</p>
+</div>
+
+<script>
+// HERO CANVAS
+const cv=document.getElementById('hcv'),cx=cv.getContext('2d');
+function rsz(){cv.width=cv.parentElement.offsetWidth;cv.height=cv.parentElement.offsetHeight}
+rsz();window.addEventListener('resize',rsz);
+const wv=[
+  {y:.5,a:.09,f:.006,p:0,sp:.0025,op:.04,c:'45,74,53'},
+  {y:.62,a:.07,f:.007,p:1.5,sp:.002,op:.07,c:'184,137,58'},
+  {y:.74,a:.06,f:.009,p:2.5,sp:.003,op:.1,c:'92,61,32'},
+  {y:.85,a:.05,f:.007,p:.8,sp:.0018,op:.14,c:'45,74,53'},
+  {y:.93,a:.04,f:.011,p:3.2,sp:.0022,op:.2,c:'184,137,58'},
+];
+let t=0;
+function drawBg(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  const bg=cx.createLinearGradient(0,0,0,cv.height);
+  bg.addColorStop(0,'rgba(254,252,248,0)');
+  bg.addColorStop(1,'rgba(232,220,195,.15)');
+  cx.fillStyle=bg;cx.fillRect(0,0,cv.width,cv.height);
+  wv.forEach(w=>{
+    const by=cv.height*w.y,amp=cv.height*w.a;
+    cx.beginPath();cx.moveTo(0,cv.height);
+    for(let x=0;x<=cv.width;x+=2){
+      const y=by+Math.sin(x*w.f+w.p+t*w.sp)*amp+Math.cos(x*w.f*.5+w.p*.7+t*w.sp*.7)*amp*.3;
+      cx.lineTo(x,y);
+    }
+    cx.lineTo(cv.width,cv.height);cx.closePath();
+    const g=cx.createLinearGradient(0,by-amp,0,cv.height);
+    g.addColorStop(0,`rgba(${w.c},${w.op*.4})`);
+    g.addColorStop(1,`rgba(${w.c},${w.op})`);
+    cx.fillStyle=g;cx.fill();
+  });
+  t++;requestAnimationFrame(drawBg);
+}
+drawBg();
+
+// ROI CALCULATORS
+function calcBooking(){
+  const v=+i('b1')*+i('b2')/100*+i('b3')*30;
+  document.getElementById('b-result').textContent=fmt(v)+' ريال';
+}
+function calcWA(){
+  const v=Math.round(+i('w1')*+i('w2')/100*+i('w3')/100*30);
+  document.getElementById('w-result').textContent=fmt(v)+' موعد';
+}
+function calcCall(){
+  const v=+i('c1')*+i('c2')/100*+i('c3')/100*+i('c4');
+  document.getElementById('c-result').textContent=fmt(v)+' ريال';
+}
+function i(id){return document.getElementById(id)?.value||0}
+function fmt(n){return Math.round(n).toLocaleString('ar')}
+calcBooking();calcWA();calcCall();
+
+// SCROLL REVEAL + animate bars/progress
+const obs=new IntersectionObserver(es=>{
+  es.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('v'),i*70);
+    }
+  });
+},{threshold:.07});
+document.querySelectorAll('.r').forEach(r=>obs.observe(r));
+
+// Animate progress bars when visible
+const progObs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      // Animate progress cards
+      setTimeout(()=>{
+        animatePct('p1-bar','p1-pct',100);
+        setTimeout(()=>animatePct('p2-bar','p2-pct',65),300);
+        setTimeout(()=>animatePct('p3-bar','p3-pct',30),600);
+      },400);
+      // Animate gantt bars
+      document.querySelectorAll('.gbar').forEach((b,i)=>{
+        setTimeout(()=>{b.style.width='100%'},200+i*60);
+      });
+      document.querySelectorAll('.gdiam').forEach((d,i)=>{
+        d.style.animationDelay=(0.5+i*0.15)+'s';
+      });
+      progObs.unobserve(e.target);
+    }
+  });
+},{threshold:.1});
+const po=document.querySelector('.progress-overview');
+if(po)progObs.observe(po);
+
+function animatePct(barId,pctId,target){
+  const bar=document.getElementById(barId);
+  const pct=document.getElementById(pctId);
+  if(!bar||!pct)return;
+  let cur=0;
+  const step=()=>{
+    cur=Math.min(cur+2,target);
+    bar.style.width=cur+'%';
+    pct.textContent=cur+'%';
+    if(cur<target)requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+</script>
+</body>
+</html>
